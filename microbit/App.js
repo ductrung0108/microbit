@@ -1,20 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+
+
 const Section = ({ title }) => {
+  const SectionContent = () => {
+    return (
+      <View style={{alignContent: "flex-start", width: "100%"}}>
+        <Text style={{color: "white"}}>This is content</Text>
+      </View>
+    )
+  }
+
   return <View
     style={styles.section}>
-      <Text style={{color: "white"}}>{title}</Text>
+      <View style={{alignContent: "flex-start", width: "100%"}}>
+        <Text style={styles.title}>{title}</Text>
+      </View>
+      <SectionContent></SectionContent>
     </View>
 }
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Section title="Status"></Section>
       <Section title="Bridge"></Section>
-      <Section title="Light A"></Section>
-      <Section title="Light B "></Section>
+      <Section title="Lights"></Section>
       <StatusBar style="auto" />
     </View>
   );
@@ -26,23 +38,28 @@ const styles = StyleSheet.create({
     backgroundColor: '#1B1B1B',
     alignItems: 'center',
     justifyContent: 'center',
-    color: '#F1F1F1'
+    color: '#F1F1F1',
+    paddingTop: "5%"
   },
 
   section: {
     height: '30%',
-    width: '90%',
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
-    borderColor: 'white',
-    borderWidth: 0.3,
+    width: '88%',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    backgroundColor: '#292929',
     alignItems: 'center',
     justifyContent: 'top',
     marginTop: 4,
     marginBottom: 4,
     color: 'white',
-    padding: 20
+    padding: 20,
+  },
+
+  title: {
+    fontSize: 20,
+    color: 'white'
   }
 });
